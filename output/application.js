@@ -6,11 +6,16 @@ class Complaint {
 
         let me = this;
 
+        
         var btnAdd = $('<button class="btn btn-primary">Nuevo</button>');
         $('#wrapper-container').append(btnAdd);
 
+        var containerBtnReport = $('<div class="container__btns--report"></div>');
+        $('#wrapper-container').append(containerBtnReport);
+
         var grid = $('<div id="grid-complaint" class="grid"></div>');
         $('#wrapper-container').append(grid);
+
 
         var dataSource = new kendo.data.DataSource({
             transport: {
@@ -125,6 +130,27 @@ class Complaint {
         btnAdd.click(function (params) {
             me.newComplaint();
         });
+
+        var btnExcel = $('<button class="btn btn-success">Excel</button>');
+        containerBtnReport.append(btnExcel);
+        var btnCsv = $('<button class="btn btn-info">Csv</button>');
+        containerBtnReport.append(btnCsv);
+        var btnPdf = $('<button class="btn btn-danger">Pdf</button>');
+        containerBtnReport.append(btnPdf);
+
+        btnExcel.click(function () {
+            window.location.href = host + 'complaints/xls';            
+        });
+
+        btnPdf.click(function () {
+            window.open(host + 'complaints/pdf', '_blank');
+        });
+
+        btnCsv.click(function () {
+            window.open(host + 'complaints/csv', '_blank');
+        });
+
+        
 
 
     }

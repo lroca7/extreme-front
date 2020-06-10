@@ -1101,3 +1101,13 @@ table{
     width: 250px;
     height: 250px;
 }
+
+.container__btns--report{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -35px;
+}
+
+.container__btns--report button{
+    margin-left: 10px;
+}
